@@ -25,7 +25,7 @@ FairFabProject is an ERC721 NFT-based project with support for royalties via the
 
 As part of the **FairFabric ecosystem**, the project aligns with values of **economic solidarity** and **on-chain decentralized operations**, giving users the freedom to exchange and manage their digital assets securely and transparently.
 
-More details about the project can be found in the [Whitepaper](https://example.com/whitepaper).
+More details about the project can be found in the [Whitepaper](https://fairfabric.github.io/fairfab-project-contract/WHITEPAPER).
 
 ### Legal Disclaimer
 
