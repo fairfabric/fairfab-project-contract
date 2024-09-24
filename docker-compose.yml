@@ -1,13 +1,13 @@
 version: '3'
 services:
   bsc-node:
-    image: bsc-node:latest
-    container_name: bsc-node
+    image: ghcr.io/bnb-chain/bsc:latest 
+    container_name: bsc
     ports:
       - "8545:8545"
       - "30303:30303"
     volumes:
-      - ./bsc_data:/root/.bsc
+      - .data/bsc/root/.bsc:/root/.bsc
     networks:
       - bsc-network
     environment:
@@ -17,27 +17,12 @@ services:
     command:
       - --rpc --rpcaddr 0.0.0.0 --rpcport 8545 --networkid ${NETWORK_ID}
 
-  truffle:
-    image: trufflesuite/truffle
-    container_name: truffle
-    working_dir: /truffle_project
-    volumes:
-      - ./truffle_project:/truffle_project
-    networks:
-      - bsc-network
-    tty: true
-    environment:
-      - NODE_ENV=development
-      - BSC_RPC_URL=http://bsc-node:8545
-    depends_on:
-      - bsc-node
-
   hardhat:
     image: ethereumoptimism/hardhat:latest
     container_name: hardhat
-    working_dir: /hardhat_project
+    working_dir: /project
     volumes:
-      - ./hardhat_project:/hardhat_project
+      - ./.data/hardhat/project:/project
     networks:
       - bsc-network
     tty: true
